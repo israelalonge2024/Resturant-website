@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resturants Landing page</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for icons (location and phone) -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body style="scroll-behavior: smooth;">
+    <nav class="nav-bar" id="navBar">
+      <div class="nav-container">
+        <h1 style="color: #e8742b;" >EA<span style="color: rgb(124, 119, 109)">TLY.</span></h1>
+        <button class="nav-toggle" aria-label="toggle navigation">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="nav-links links">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#popularDishes">Menu</a></li>
+            <li><a href="#booking">Services</a></li>
+            <li><a href="#mainContact">Contact</a></li>
+          </ul>
+          <!-- mobile-only cart shown inside the collapsed nav toggle -->
+          <div class="mobile-cart" aria-hidden="true">
+            <button class="cartIcon" type="button" id="mobileCartIcon" aria-label="Open cart (mobile)">
+              <i class="fa fa-shopping-cart" style="color: #e8742b;"></i>
+              <span id="mobileCartCount" aria-hidden="true" style="display:inline-block; min-width:20px; padding:2px 6px; margin-left:6px; background: #e8742b; color:#fff; border-radius:999px; font-size:0.85rem; vertical-align:middle;">0</span>
+            </button>
+          </div>
+        </div>
+        <div class="nav-contact">
+          <p>
+            <i
+                style="color: #e8742b"
+                class="fa-solid fa-location-dot"
+                aria-hidden="true"
+              ></i>
+            <button class="cartIcon" type="button" id="cartIcon" aria-label="Open cart">
+              <i class="fa fa-shopping-cart" style="color: #e8742b;"></i>
+              <span id="cartCount" aria-hidden="true" style="display:inline-block; min-width:20px; padding:2px 6px; margin-left:6px; background: #e8742b; color:#fff; border-radius:999px; font-size:0.85rem; vertical-align:middle;">0</span>
+            </button>
+          </p>
+         
+        </div>
+        <div class="nav-button">
+          <button class="navButton">Shop Now</button>
+        </div>
+      </div>
+    </nav>
+    <main class="hero" id="hero">
+      <div class="hero-bead">
+        <img src="images/Untitled design (8)-Photoroom.png" />
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-text" data-aos="fade-right">
+          <h1>Delicious Dishes</h1>
+          <h2>for Food lovers</h2>
+          <p>
+            SO delicious food for fuoye students, you will love it because it
+            super amazing for you gosoihkmddim bpboihmn odpsmdpo odsdob
+            opdsegsip dsmsop
+          </p>
+          <div class="hero-but">
+          <button class="explore-button">Explore more</button>
+           <button class="search-button"><i class="fa-solid fa-search"></i> Search</button>
+           </div>
+           <div class="rates">
+            <div class="rates1">
+              <h1>800+</h1>
+              <p>Happy Customers</p>
+            </div>
+            <div class="rates2">
+              <h1>150+</h1>
+              <p>Menu items</p>
+            </div>
+           </div>
+        </div>
+        <div class="hero-little-img">
+          <img src="images/Untitled design (9).png" />
+        </div>
+        <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
+          <div class="hero-image-text">
+            <i class="fa-solid fa-clock fa-2x" style="color:#e8742b;"></i>
+            <div class="">
+              <p>Delivery Time</p>
+              <p>15mins</p>
+            </div>
+          </div>
+
+          <img alt="design" src="images/Untitled_design__8_-Photoroom-removebg-preview.png" />
+         <div class="hero-image-text2">
+           <img alt="profile-pics" src="images/pro-removebg-preview.png" />
+            <div class="profile-div">
+              <h2>Oluwatosin</h2>
+              <p>fuoye student</p>
+              <i class="fa-solid fa-star" style="font-size: 8px; color: orange;"></i>
+               <i class="fa-solid fa-star" style="font-size: 8px; color: orange;" ></i>
+                <i class="fa-solid fa-star" style="font-size: 8px; color: orange;"></i>
+                 <i class="fa-solid fa-star" style="font-size: 8px; color: orange;"></i>
+                  <i class="fa-solid fa-star" style="font-size: 8px; color: orange;"></i>
+            </div>
+        </div>
+        </div>
+      </div>
+    </main>
+    <div id="addedModal"><i class="fa-solid fa-check"></i> Item added to cart!</div>
+    <div id="cartModal" role="dialog" aria-modal="true" aria-label="Shopping cart">
+      <h3>Your Cart</h3>
+      <ul id="cartItems"></ul>
+      <div id="cartSummary" style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;">
+        <p id="cartTotal" style="font-weight:700;">Total: $0.00</p>
+        <div>
+          <button id="checkout" style="background:#e8742b;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;">Checkout</button>
+          <button id="closeCart" style="margin-left:8px;padding:8px 12px;border-radius:6px;">Close</button>
+        </div>
+      </div>
+    </div>
+    <section class="popular-dishes" id="popularDishes">
+      <div class="dishes-head">
+      <div class="dishes-title" data-aos="fade-up">
+        <h2>Popular Dishes</h2>
+        <p>Our most loved dishes by customers</p>
+      </div>
+      <div class="dishes-sign">
+        <div class="left-sign">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+         <div class="right-sign">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+      </div>
+
+      <!-- menu div--> 
+       <div class="menu-container">
+          <!-- menu items--> 
+        <div class="menu-items">
+          <img src="images/asif-ali-B6omOU00QM4-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Pasta Carbonara</h3>
+            <p>Authetic italian pasta with creamy sauce</p>
+          </div>
+          <div class="menu-footer">
+            <p><span>$</span>15.00</p>
+           <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items">
+          <img src="images/haseeb-jamil-J9lD6FS6_cs-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+            <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Truffle Risotto</h3>
+            <p>Delicious Canadian pasta with creamy flavor</p>
+          </div>
+           <div class="menu-footer">
+            <p><span>$</span>99.00</p>
+          <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items">
+          <img src="images/faez-daniel-1aXm7gETdLE-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Lobster themidor</h3>
+            <p>Amazing lobster fries with juice</p>
+          </div>
+           <div class="menu-footer">
+            <p><span>$</span>47.00</p>
+          <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items">
+          <img src="images/abhik-paul-Lsiv0oAIfFk-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Grilled salmon</h3>
+            <p>Authetic brazilain salmon sauce</p>
+          </div>
+           <div class="menu-footer">
+            <p><span>$</span>25.00</p>
+            <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items">
+          <img src="images/asif-ali-B6omOU00QM4-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Beef Wellington</h3>
+            <p>Authetic italian pasta with creamy sauce</p>
+          </div>
+           <div class="menu-footer">
+            <p><span>$</span>10.00</p>
+            <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items">
+          <img src="images/digjot-singh-bR7umfeCS5c-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Fola Gras</h3>
+            <p>Delicious gras with fries pie</p>
+          </div>
+           <div class="menu-footer">
+            <p><span>$</span>49.00</p>
+           <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+         
+       </div>
+    </section>
+
+    <div class="booking" id="booking">
+      <div class="booking-container">
+        <div class="booking-text" data-aos="fade-right">
+<h2>Reserve Your Table</h2>
+<p>Experience an unforgettable dining experience at EATLY. Book your table now and enjoy our premium cuisine with exceptional service.</p>
+       <div class="booking-display">
+        <div class="easy-booking">
+          <i class="fa-solid fa-calendar"></i>
+          <div class="">
+          <h3>Easy Booking</h3>
+          <p>Reserve your table in just a few clicks. </p>
+          </div>
+        </div>
+         <div class="easy-booking">
+          <i class="fa-solid fa-clock"></i>
+          <div class="">
+          <h3>Flexible Timing</h3>
+          <p>Choose your perfect date and time. </p>
+          </div>
+        </div>
+         <div class="easy-booking">
+          <i class="fa-solid fa-users"></i>
+          <div class="">
+          <h3>Group Friendly</h3>
+          <p>Perfect for any group size or occasion. </p>
+          </div>
+        </div>
+       </div>
+</div>
+        <div class="booking-form" data-aos="fade-left" data-aos-delay="200">
+<form>
+  <label>Full name</label>
+  <div class="input-div">
+  <input type="text" placeholder="John Smith" required/>
+  <i class="fa-solid fa-user"></i>
+  </div>
+
+   <label>Email</label>
+  <div class="input-div">
+  <input type="text" placeholder="johnsmith@gmail.com" required/>
+  <i class="fa-solid fa-envelope"></i>
+  </div>
+
+  <label>Phone Number</label>
+  <div class="input-div">
+  <input type="tel" placeholder="+234 904 774 2049" required />
+  <i class="fa-solid fa-envelope"></i>
+  </div>
+
+  <div class="date-time">
+     <label>Date</label>
+  <div class="input-div">
+  <input type="date" placeholder="mm/dd/yy" required />
+  <i class="fa-solid fa-calendar"></i>
+  </div>
+
+   <label>Time</label>
+  <div class="input-div">
+  <input type="time" placeholder="" required/>
+  <i class="fa-solid fa-clock"></i>
+  </div>
+  </div>
+
+  <label>Number of Guests</label>
+  <div class="input-div">
+  <input type="number" placeholder="3 Guests" required />
+  <i class="fa-solid fa-users"></i>
+  </div>
+
+  
+  <label>Special Requests (optional)</label>
+  <div class="input-div">
+  <textarea placeholder="Type your message here.." ></textarea>
+  <i class="fa-solid fa-envelope"></i>
+  </div>
+</form>
+ <button class="reverseButton">Reserve Table</button>
+        </div>
+       
+      </div>
+    </div>
+
+
+      <!-- Testimonials -->
+      <section class="testimonials" id="testimonials" data-aos="fade-up">
+        <div class="testimonials-container">
+          <div class="testimonials-head">
+            <h2>What our customers say</h2>
+            <p>Real reviews from diners who love our food</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <!-- cards will be populated by script.js -->
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="profile">
+                <img src="https://i.pravatar.cc/150?img=1" alt="profile" />
+              </div>
+              <h3 class="t-name">Alex</h3>
+              <p class="t-rating">Delicious</p>
+              <p class="t-quote">"The flavors were outstanding — I'll be back every week!"</p>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="profile">
+                <img src="https://i.pravatar.cc/150?img=2" alt="profile" />
+              </div>
+              <h3 class="t-name">Sam</h3>
+              <p class="t-rating">Exceptional</p>
+              <p class="t-quote">"Fast delivery and food was still piping hot. Highly recommend!"</p>
+            </div>
+
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="profile">
+                <img src="https://i.pravatar.cc/150?img=3" alt="profile" />
+              </div>
+              <h3 class="t-name">Jordan</h3>
+              <p class="t-rating">Fresh</p>
+              <p class="t-quote">"Fresh ingredients and beautiful presentation — five stars."</p>
+            </div>
+
+          </div>
+
+          <div class="testimonials-buttons">
+            <button class="btn primary">Read More</button>
+            <button class="btn outline">Leave a Review</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="regularMenu" id="regularMenu" style="overflow: visible;">
+      <div class="" style="margin: 10px;" data-aos="fade-up">
+      <h1>Our Regular Menu Pack</h1>
+      <p>Explore our diverse menu with carefully curated dishes from around the world</p>
+     </div>
+      <div class="menuLsit">
+       <div class="">
+        <button>Specials Treats</button>
+           <button>Mezzas</button>
+              <button>Sides</button>
+                 <button>Appetizers</button>
+                    <button>Drinks</button>
+                       <button>Lunch</button>
+                          <button>More items</button>
+                          </div>
+                          
+      </div>
+        <!-- menu div--> 
+       <div class="menu-container">
+          <!-- menu items--> 
+        <div class="menu-items-new">
+          <img src="images/asif-ali-B6omOU00QM4-unsplash.jpg" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Pasta Carbonara</h3>
+          
+          </div>
+          <div class="menu-footer">
+            <p>$15.00</p>
+           <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items-new">
+          <img src="images/haseeb-jamil-J9lD6FS6_cs-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+            <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Truffle Risotto</h3>
+           
+          </div>
+           <div class="menu-footer">
+            <p>$99.00</p>
+            <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items-new">
+          <img src="images/faez-daniel-1aXm7gETdLE-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Lobster themidor</h3>
+          
+          </div>
+           <div class="menu-footer">
+            <p>$47.00</p>
+            <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items-new">
+          <img src="images/abhik-paul-Lsiv0oAIfFk-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Grilled salmon</h3>
+       
+          </div>
+           <div class="menu-footer">
+            <p>$25.00</p>
+           <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+          <!-- menu items--> 
+        <div class="menu-items-new">
+          <img src="images/asif-ali-B6omOU00QM4-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Beef Wellington</h3>
+           
+          </div>
+           <div class="menu-footer">
+            <p>$10.00</p>
+            <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+         <!-- menu items--> 
+        <div class="menu-items-new">
+          <img src="images/asif-ali-B6omOU00QM4-unsplash.jpg" class="menu-items-im" alt="food image">
+          <div class="content">
+             <div class="ratin">
+              <i class="fa-solid fa-star"></i> 4.8
+            </div>
+            <h3>Beef Wellington</h3>
+           
+          </div>
+           <div class="menu-footer">
+            <p>$10.00</p>
+           <button style="background: transparent; border: none; cursor: pointer;" class="addToCart"> <i class="fa fa-shopping-cart"></i></button>
+         
+          </div>
+        </div>
+        </div>
+       </div>
+       
+    </section>
+<!-- Trendy Recipes-->
+<section class="recipes" id="recipes">
+  <div class="trendy-head">
+    <h1>Trendy <span style="color:#e8742b;">Recipes</span></h1>
+    <button>View More</button>
+  </div>
+  <div class="trendy-con">
+    <div class="trendy-item">
+      <img src="images/amin-ramezani-4Gla7PP-RWU-unsplash.jpg" alt="food">
+      <h3>Chicken Fejita</h3>
+      <p><strong>Inredients:</strong> Lorem ipsum sit aet.consecure podic. </p>
+    </div>
+       <div class="trendy-item">
+      <img src="images/bon-vivant-qom5MPOER-I-unsplash.jpg" alt="food">
+      <h3>Chicken Fejita</h3>
+      <p><strong>Inredients:</strong> Lorem ipsum sit aet.consecure podic aet.consecure podic. </p>
+    </div>
+       <div class="trendy-item">
+      <img src="images/casey-lee-awj7sRviVXo-unsplash.jpg" alt="food">
+      <h3>Air fryer chicken</h3>
+      <p><strong>Inredients:</strong> Lorem ipsum sit aet.consecure podic.  aet.consecure podic </p>
+    </div>
+       <div class="trendy-item">
+      <img src="images/cristina-matos-albers-Ltv7a5m8i4c-unsplash (2).jpg" alt="food">
+      <h3>Crispy baked</h3>
+      <p><strong>Inredients:</strong> Lorem ipsum sit aet.consecure podic ae.consecure podic </p>
+    </div>
+  </div>
+  <div class="recipe-little-image">
+    <img class="c" src="images/mockup-graphics-nZUQgW0FVnc-unsplash-removebg-preview.png" style="width: 200px; height: 50px; object-fit: contain;">
+  
+    <h2>Check our Shop</h2>
+  
+    <div class="recipe-little-con">
+      <div class="recipe-little-div">
+      <img class="v"
+       src="images/asif-ali-B6omOU00QM4-unsplash.jpg">
+      <p>Appetizers</p>
+    </div>
+    <div class="recipe-little-div">
+      <img class="v"
+       src="images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg">
+      <p>Appetizers</p>
+    </div>
+    <div class="recipe-little-div">
+      <img class="v"
+       src="images/atikah-akhtar-DIdQP3HUMXQ-unsplash.jpg">
+      <p>Appetizers</p>
+    </div>
+    <div class="recipe-little-div">
+      <img class="v"
+       src="images/cristina-matos-albers-Ltv7a5m8i4c-unsplash (2).jpg">
+      <p>Appetizers</p>
+    </div>
+     <div class="recipe-little-div">
+      <img class="v" src="images/abhik-paul-Lsiv0oAIfFk-unsplash.jpg">
+      <p>Breakfast</p>
+    </div>
+     <div class="recipe-little-div">
+      <img class="v" src="images/anh-nguyen-kcA-c3f_3FE-unsplash.jpg">
+      <p>Cheese pizza</p>
+    </div>
+     <div class="recipe-little-div">
+      <img class="v" src="images/kalpa-mahagamage-LxkWpGMEwlM-unsplash.jpg">
+      <p>Dressert</p>
+    </div>
+     <div class="recipe-little-div">
+      <img class="v" src="images/bon-vivant-qom5MPOER-I-unsplash.jpg">
+      <p>Soup</p>
+    </div>
+    </div>
+  </div>
+  
+</section>
+
+
+    <section class="second-display">
+        <div class="second-cont">
+          <div class="second-cont-text">
+            <h3>We Are More Than Multiple Service</h3>
+            <p>This is a type off resturant which typically serves food and drinks.In addition to light refreshments such as baked goods or sacks, this term comes from the french word meaning food.</p>
+         <div class="conts">
+          <div class="conts-div">
+            <i class="fa fa-shopping-cart"></i>
+            <div class="">
+            <h4>Online Order</h4>
+            <p>Easy and convenient online ordering system</p>
+            </div>
+            
+          </div>
+           <div class="conts-div">
+            <i class="fa fa-clock"></i>
+            <div class="">
+            <h4>24/7 Service</h4>
+            <p>Available round the clock for your cravings</p>
+            </div>
+            
+          </div>
+ <div class="conts-div">
+            <i class="fas fa-utensils"></i>
+            <div class="">
+            <h4>Clean Kitchen</h4>
+            <p>Hygienic and santizied food prepartion</p>
+            </div>
+            
+          </div>
+          <div class="conts-div">
+            <i class="fa fa-people-group"></i>
+            <div class="">
+            <h4>Super chefs</h4>
+            <p>experienced chefs</p>
+            </div>
+            
+          </div>
+         
+         </div>
+          </div>
+          <div class="second-cont-image">
+            <img src="images/digjot-singh-bR7umfeCS5c-unsplash.jpg">
+          </div>
+        </div>
+       </section>
+<!-- slider-->
+<section class="sliders">
+  <div class="sliders-contianer">
+    <div class="sliders-div">
+      <img src="./images/d9935367-4d15-4219-99c0-e86ddf6f8547.jpg">
+        <img src="./images/joyful-vT5xrj3z1OE-unsplash.jpg">
+        <img src="./images/d9935367-4d15-4219-99c0-e86ddf6f8547.jpg">
+        <img src="./images/joyful-vT5xrj3z1OE-unsplash.jpg">
+          <img src="./images/lily-banse--YHSwy6uqvk-unsplash.jpg">
+         
+    </div>
+  </div>
+</section>
+
+
+<!-- chef-->
+ <section class="chef">
+<h1>Meet Our chefs</h1>
+<p>Talented culinary experts behind every dish</p>
+<div class="chefs-images-container">
+  <div class="chefs-images-box">
+    <img src="images/febrian-zakaria-SiQgni-cqFg-unsplash.jpg">
+    <h2>Smith williams</h2>
+    <p>senior chef</p>
+  </div>
+   <div class="chefs-images-box">
+    <img src="images/jeff-siepman-z-IxdGQ7lPU-unsplash.jpg">
+    <h2>Kelvin james</h2>
+     <p>sous chef</p>
+  </div>
+   <div class="chefs-images-box">
+    <img src="images/rc-cf-FMh5o5m5N9E-unsplash.jpg">
+    <h2>John</h2>
+     <p>Pastry chef</p>
+  </div>
+   <div class="chefs-images-box">
+    <img src="images/redcharlie-t-7KEq9M0b0-unsplash.jpg">
+    <h2> williams</h2>
+     <p>senior chef</p>
+  </div>
+</div>
+ </section>
+
+       <!-- Contact-->
+        <section id="mainContact" class="main-contact">
+          <div class="main-contact-con">
+            <div class="main-contact-div image">
+<img src="images/faez-daniel-1aXm7gETdLE-unsplash.jpg">
+            </div>
+             <div class="main-contact-div">
+              <h1>
+                Never Feel Hungry! 
+                Contact Us 
+              </h1>
+              <p>Enjoy delicous foods on the go. Contatc us here</p>
+              <div class="button-c">
+                <button class="whatsapp"><i class="fa-brands fa-whatsapp"></i> Whatsapp</button>
+                  <button class="tiktok"><i class="fa-brands fa-tiktok"></i> Tiktok</button>
+              </div>
+              <ul>
+                <li>Fast and easy ordering</li>
+                <li>Real-time order tracking</li>
+                <li>Exclusive social media deals</li>
+              </ul>
+             </div>
+          </div>
+        </section>
+
+        <!-- Newsletter -->
+         <section class="newsletter">
+          
+         </section>
+        <footer>
+          <div class="footer-container">
+            <div class="footer-div">
+              <h2>EAT<span style="color:orange">LY</span></h2>
+              <p>premium dining experience with<br> world-class cuisine and exceptional service.
+              </p>
+              
+            </div>
+            <div class="footer-div">
+              <h2>Quick Links</h2>
+              <a href="">About Us</a>
+              <a>Menu</a>
+              <a>Reservations</a>
+               <a>Contact</a>
+            </div>
+              <div class="footer-div">
+              <h2>Contact</h2>
+              <a href="">123 Food street, City</a>
+              <a>+234 904554 2059</a>
+              <a>info@gmail.com</a>
+               <a>Open 24/7</a>
+            </div>
+              <div class="footer-div">
+              <h2>Follow Us</h2>
+              <div class="iconss">
+             <i class="fa-brands fa-facebook facebook"></i>
+                    <i class="fa-brands fa-tiktok x"></i>
+                           <i class="fa-brands fa-instagram ins"></i>
+                                  <i class="fa-brands fa-linkedin lin"></i>
+               </div>
+            </div>
+          </div>
+        </footer>
+  <script src="script.js?v=2"></script>
+    <!-- AOS JavaScript -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        offset: 150,
+        once: true
+      });
+    </script>
+  </body>
+</html>
